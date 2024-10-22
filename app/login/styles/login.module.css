@@ -1,0 +1,82 @@
+/* Ensure the entire page uses flexbox to center the content */
+.App {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh; /* Full height of the viewport */
+	background-color: #f0f2f5; /* Light gray background */
+	margin: 0;
+	padding: 0;
+}
+
+/* Style for the login section (the container for the form) */
+.Login-section {
+	padding: 25px;
+	background-color: #ffffff; /* White background for the form */
+	border-radius: 12px;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Darker shadow for depth */
+	width: 100%;
+	max-width: 320px;
+	text-align: center;
+	border-top: 5px solid #007bff; /* Blue top border for a pop of color */
+}
+
+/* Styling for the login button */
+button {
+	width: 100%;
+	background-color: #007bff; /* Bright blue button */
+	color: white;
+	border: none;
+	padding: 12px;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+button:hover {
+	background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Form input styles */
+input {
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	transition: border-color 0.3s ease;
+}
+
+/* Change input border color on focus */
+input:focus {
+	border-color: #007bff;
+	outline: none;
+}
+
+/* Forgot Password and Sign up links */
+a {
+	color: #007bff;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #0056b3;
+}
+
+/* Adjust the spacing for the login heading */
+h2 {
+	margin-bottom: 20px;
+	font-size: 26px;
+	color: #333; /* Dark gray text color */
+}
+
+/* Add a colorful background to the input labels (optional) */
+label {
+	color: #555; /* Slightly darker gray for labels */
+	font-weight: bold;
+}

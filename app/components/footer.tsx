@@ -1,20 +1,16 @@
 import { FunctionComponent } from 'react';
-import styles from './footer.module.css';
+import styles from './styles/footer.module.css';
 import Image from 'next/image';
-import Logo from './assets/SFC Logo.jpg';
-import XLogo from './assets/X Logo.svg';
-import InstagramLogo from './assets/Instagram Logo.svg';
-import YouTubeLogo from './assets/YouTube Logo.svg';
 
 const Footer:FunctionComponent = () => {
   	return (
     		<div className={styles.footer}>
       			<div className={styles.title}>
-                    <Image className={styles.sfcLogoIcon} src={Logo} alt="" />
+                    <Image className={styles.sfcLogoIcon} src="/images/SFC Logo.jpg" alt="" width={60} height={85} />
         				<div className={styles.buttonList}>
-                            <Image className={styles.socialStartIcon} src={XLogo} alt="" />
-                            <Image className={styles.socialIcon} src={InstagramLogo} alt="" />
-                            <Image className={styles.socialIcon} src={YouTubeLogo} alt="" />
+                            <Image className={styles.socialStartIcon} src="/images/X Logo.svg" alt="" width={24} height={24} />
+                            <Image className={styles.socialIcon} src="/images/Instagram Logo.svg" alt="" width={24} height={24} />
+                            <Image className={styles.socialIcon} src="/images/YouTube Logo.svg" alt="" width={24} height={24} />
         				</div>
       			</div>
       			<div className={styles.textLinkList}>

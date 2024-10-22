@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import styles from './Separator.module.css';
+import styles from '../styles/separator.module.css';
 
 
 const Separator:FunctionComponent = () => {

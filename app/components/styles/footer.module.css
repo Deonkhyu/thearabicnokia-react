@@ -1,0 +1,142 @@
+.sfcLogoIcon {
+	width: 60px;
+	position: relative;
+	height: 85px;
+}
+
+.socialStartIcon {
+	width: 24px;
+	position: relative;
+	height: 24px;
+}
+
+.socialIcon {
+	width: 24px;
+	position: relative;
+	height: 24px;
+	overflow: hidden;
+	flex-shrink: 0;
+}
+
+.buttonList {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 16px;
+}
+
+.title {
+	width: 262px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: 24px;
+	min-width: 240px;
+}
+
+.textStrong1 {
+	position: relative;
+	line-height: 140%;
+}
+
+.textStrong {
+	align-self: stretch;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
+.title1 {
+	align-self: stretch;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	padding: 0px 0px 16px;
+}
+
+.listItem {
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	line-height: 140%;
+}
+
+.textLinkListItem {
+	width: 140px;
+	position: relative;
+	height: 22px;
+}
+
+.textLinkList {
+	width: 262px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 12px;
+}
+
+.textLinkList1 {
+	width: 262px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: 12px;
+}
+
+.operatingHours {
+	margin: 0;
+}
+
+.textLinkListItem6 {
+	position: absolute;
+	top: 46px;
+	left: 0px;
+	width: 283px;
+	height: 198px;
+}
+
+.title3 {
+	position: absolute;
+	top: 0px;
+	left: 1.5px;
+	width: 282px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	padding: 0px 0px 16px;
+	box-sizing: border-box;
+}
+
+.textLinkList2 {
+	width: 283px;
+	position: relative;
+	height: 244px;
+}
+
+.footer {
+	width: 100%;
+	position: relative;
+	background-color: #1e1e1e;
+	border-top: 1px solid #444;
+	box-sizing: border-box;
+	overflow: hidden;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	padding: 32px 32px 160px;
+	gap: 120px;
+	text-align: left;
+	font-size: 16px;
+	color: #fff;
+	font-family: Cinzel;
+}
