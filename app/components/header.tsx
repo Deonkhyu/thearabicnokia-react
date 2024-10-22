@@ -10,7 +10,9 @@ const Header: FunctionComponent = () => {
 			<Image className={styles.sfcLogoIcon} src="/images/SFC Logo.jpg" alt='' width={60} height={85} />
 		</Link>
 		<div className={styles.navigationPillList}>
-			<button className={styles.navigationPill}>Donate</button>
+			<Link href="/donate">
+				<button className={styles.navigationPill}>Donate</button>
+			</Link>
 			<button className={styles.navigationPill}>Prices</button>
 			<button className={styles.navigationPill}>Gallery</button>
 			<button className={styles.navigationPill}>About</button>
