@@ -1,0 +1,23 @@
+.experienceTheBeauty {
+    width: 1092px;
+    position: relative;
+    letter-spacing: -0.25px;
+    line-height: 64px;
+    display: inline-block;
+    height: 60px;
+    flex-shrink: 0;
+}
+.section {
+    width: 100%;
+    position: relative;
+    background-color: #eee;
+    height: 92px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 32px;
+    color: #000;
+    font-family: 'Hedvig Letters Serif';
+}

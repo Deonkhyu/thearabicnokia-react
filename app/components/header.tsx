@@ -13,8 +13,12 @@ const Header: FunctionComponent = () => {
 			<Link href="/donate">
 				<button className={styles.navigationPill}>Donate</button>
 			</Link>
-			<button className={styles.navigationPill}>Prices</button>
-			<button className={styles.navigationPill}>Gallery</button>
+			<Link href="/prices">
+				<button className={styles.navigationPill}>Prices</button>
+			</Link>
+			<Link href="/gallery">
+				<button className={styles.navigationPill}>Gallery</button>
+			</Link>
 			<button className={styles.navigationPill}>About</button>
 			<button className={styles.navigationPill}>Contact</button>
 		</div>
