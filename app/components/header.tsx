@@ -5,14 +5,15 @@ import Link from 'next/link';
 
 const Header: FunctionComponent = () => {
 	return (
-	<div className={styles.header}>
-		<Image className={styles.sfcLogoIcon} src="/images/SFC Logo.jpg" alt='' width={60} height={85} />
+	<div className={styles.header}>	
+		<Link href="/home">
+			<Image className={styles.sfcLogoIcon} src="/images/SFC Logo.jpg" alt='' width={60} height={85} />
+		</Link>
 		<div className={styles.navigationPillList}>
 			<button className={styles.navigationPill}>Donate</button>
 			<button className={styles.navigationPill}>Prices</button>
 			<button className={styles.navigationPill}>Gallery</button>
-			<button className={styles.navigationPill}>Florilegium</button>
-			<button className={styles.navigationPill}>Wildlife</button>
+			<button className={styles.navigationPill}>About</button>
 			<button className={styles.navigationPill}>Contact</button>
 		</div>
 		<div className={styles.headerAuth}>
