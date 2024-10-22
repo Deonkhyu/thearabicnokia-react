@@ -1,0 +1,109 @@
+.reviews {
+    align-self: stretch;
+    position: relative;
+    letter-spacing: -0.02em;
+    line-height: 120%;
+    font-weight: 600;
+}
+.subheading {
+    align-self: stretch;
+    position: relative;
+    font-size: 20px;
+    line-height: 120%;
+    color: #757575;
+}
+.textContentHeading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+}
+.imageIcon {
+    width: 160px;
+    border-radius: 100px;
+    height: 160px;
+    overflow: hidden;
+    flex-shrink: 0;
+    object-fit: cover;
+    min-width: 160px;
+}
+.whatAGreat {
+    align-self: stretch;
+    position: relative;
+    font-size: 16px;
+    line-height: 140%;
+    color: #757575;
+}
+.text {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+}
+.buttonGroup {
+    align-self: stretch;
+    height: 40px;
+}
+.body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+    min-width: 160px;
+}
+.card {
+    align-self: stretch;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding: 24px;
+    gap: 24px;
+    min-width: 240px;
+}
+.body1 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-width: 160px;
+}
+.openingTimesAre {
+    margin: 0;
+}
+.cards {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 24px;
+}
+.cardGridContentList {
+    width: 100%;
+    position: relative;
+    background-color: #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 64px;
+    box-sizing: border-box;
+    gap: 48px;
+    text-align: left;
+    font-size: 24px;
+    color: #1e1e1e;
+    font-family: Inter;
+}

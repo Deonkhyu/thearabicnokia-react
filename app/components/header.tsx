@@ -19,8 +19,12 @@ const Header: FunctionComponent = () => {
 			<Link href="/gallery">
 				<button className={styles.navigationPill}>Gallery</button>
 			</Link>
-			<button className={styles.navigationPill}>About</button>
-			<button className={styles.navigationPill}>Contact</button>
+			<Link href="/about">
+				<button className={styles.navigationPill}>About</button>
+			</Link>
+			<Link href="/contact">
+				<button className={styles.navigationPill}>Contact</button>
+			</Link>
 		</div>
 		<div className={styles.headerAuth}>
 			<Link href="/login">

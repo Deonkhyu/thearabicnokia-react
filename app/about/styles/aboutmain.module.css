@@ -1,0 +1,62 @@
+.imageIcon {
+    width: 486px;
+    margin: 0 !important;
+    position: absolute;
+    top: 64px;
+    left: 64px;
+    height: 350px;
+    overflow: hidden;
+    flex-shrink: 0;
+    object-fit: cover;
+    z-index: 0;
+}
+.protecting {
+    margin: 0;
+}
+.strivingToRehabilitateInjur {
+    margin: 0;
+    font-size: 20px;
+    font-family: 'Hedvig Letters Serif';
+}
+.span {
+    color: #000;
+}
+.protectingStrivingToContainer {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    letter-spacing: -0.03em;
+    line-height: 120%;
+    display: inline-block;
+    width: 494px;
+    height: 350px;
+}
+.protectingStrivingToRehabilWrapper {
+    width: 506px;
+    position: absolute;
+    margin: 0 !important;
+    top: 64px;
+    left: 618px;
+    height: 350px;
+    overflow: hidden;
+    flex-shrink: 0;
+    z-index: 1;
+}
+.panelImageDouble {
+    width: 100%;
+    position: relative;
+    background-color: #000;
+    height: 478px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 64px;
+    box-sizing: border-box;
+    gap: 48px;
+    opacity: 0.8;
+    text-align: right;
+    font-size: 36px;
+    color: #eee;
+    font-family: Cinzel;
+}
