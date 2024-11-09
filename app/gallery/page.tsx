@@ -17,23 +17,22 @@ export default function Gallery() {
         <div>
             <Header />
 
-            <div className="flex h-96 overflow-hidden items-center justify-center">
+            <div className="flex overflow-hidden items-center justify-center h-52 sm:h-96">
 				<Image 
                     src={GalleryBanner}
                     alt='Gallery Banner'
-                    className="h-full w-full object-cover object-center opacity-25"
+                    className="object-cover object-center opacity-25 h-full w-full"
                 />
 				<p className="absolute text-white text-4xl p-2 border-2">Gallery</p>
 			</div>
 
-            <div className="flex flex-col bg-slate-100 items-center p-24 shadow-inner">
-				<p className="text-black text-4xl font-bold text-center">Experience the Beauty of Sarawak</p>
+            <div className="flex flex-col bg-slate-100 items-center p-16 shadow-inner sm:p-24">
+				<p className="text-black text-2xl font-bold text-center sm:text-4xl">Experience the Beauty of Sarawak</p>
 			</div>
 
 			<div className="bg-gradient-to-r from-gray-300 via-gray-500 to-gray-700">
-            <div className="flex flex-col backdrop-blur-sm bg-slate-200/40 items-center p-16 shadow-inner">
-				<div className="pt-16">
-					<ul className="grid grid-cols-3 gap-16">
+            <div className="flex flex-col backdrop-blur-sm bg-slate-200/40 items-center shadow-inner p-8 sm:p-16">
+					<ul className="grid gap-8 grid-cols-1 gap-4 sm:gap-8 sm:grid-cols-3">
 						<li className="shadow-xl">
 							<Image 
 								src={GalleryImage1}
@@ -98,7 +97,6 @@ export default function Gallery() {
 							/>
 						</li>
 					</ul>
-				</div>
 			</div>
 			</div>
 

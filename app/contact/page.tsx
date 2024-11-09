@@ -132,7 +132,7 @@ export default function Contact() {
                     <h2 className="text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl text-center">Contact Details</h2>
                 </div>
 
-                <div className="p-24 grid grid-cols-8">
+                <div className="grid grid-cols-1 gap-4 p-12 md:p-16 md:grid-cols-4 md:gap-8 sm:p-24 sm:grid-cols-8">
                     <div className="col-span-2">
                         <h2 className="text-white font-semibold text-2xl">Phone</h2>
                         <p className="text-white text-lg">General: (+6) 082-610088</p>

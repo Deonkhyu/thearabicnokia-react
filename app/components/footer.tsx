@@ -3,9 +3,9 @@ export default function Footer() {
         <footer className="bg-neutral-900">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
-                <div className="mb-6 md:mb-0">
+                <div className="mb-6 md:mb-0 md:pr-8">
                     <a href="/" className="flex items-center">
-                        <img src="/SFC Logo.jpg" className="h-24" alt="SFC Logo" />
+                        <img src="/SFC Logo.jpg" className="h-24 md:mr-4" alt="SFC Logo" />
                     </a>
                 </div>
                 <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">

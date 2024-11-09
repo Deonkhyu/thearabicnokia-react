@@ -76,30 +76,28 @@ export default function About() {
                 <h2 className="text-2xl font-semibold tracking-tight text-black">Reviews</h2>
                 <p className="text-m text-gray-600">See what our visitors say about us.</p>
 
-                <div className="mt-16 pt-8 border-t-2 grid gap-8 grid-cols-12">
-                    <div className="col-span-4">
+                <div className="mt-16 pt-8 border-t-2 grid gap-8 grid-cols-12 sm:grid-cols-8">
+                    <div className="col-span-4 sm:col-span-2">
                         <Image
                         src={Review1}
                         alt="Toni Thompson"
-                        className="inline-block h-24 w-24 rounded-full ring-2 ring-white object-cover object-center"    
+                        className="inline-block h-16 w-16 rounded-full ring-2 ring-white object-cover object-center sm:h-24 sm:w-24"    
                         />
-                        <p className="pt-4 text-black font-semibold text-lg">Toni Thompson</p>
-                        <p className="text-gray-600">October 4, 2024</p>
-                    </div>
+                        <p className="pt-4 text-black font-semibold text-sm sm:text-xl">Toni Thompson</p>
+                        <p className="text-gray-600 text-xs sm:text-lg">October 4, 2024</p>
 
-                    <div className="col-span-2">
-                        <div className="flex items-center">
-                            <StarIcon className="h-6 w-6 fill-yellow-300" />
-                            <StarIcon className="h-6 w-6 fill-yellow-300" />
-                            <StarIcon className="h-6 w-6 fill-yellow-300" />
-                            <StarIcon className="h-6 w-6 fill-yellow-300" />
-                            <StarIcon className="h-6 w-6 fill-yellow-300" />
-                            <p className="text-black ms-2">5</p>
+                        <div className="flex items-center pt-2">
+                            <StarIcon className="h-4 w-4 fill-yellow-300 sm:h-6 sm:w-6" />
+                            <StarIcon className="h-4 w-4 fill-yellow-300 sm:h-6 sm:w-6" />
+                            <StarIcon className="h-4 w-4 fill-yellow-300 sm:h-6 sm:w-6" />
+                            <StarIcon className="h-4 w-4 fill-yellow-300 sm:h-6 sm:w-6" />
+                            <StarIcon className="h-4 w-4 fill-yellow-300 sm:h-6 sm:w-6" />
+                            <p className="text-black ms-2 text-sm sm:text-lg">5</p>
                         </div>
                     </div>
 
-                    <div className="col-span-6">
-                        <p className="text-gray-800">
+                    <div className="col-span-8 sm:col-span-6 mr-8">
+                        <p className="text-gray-800 text-sm sm:text-xl">
                         What a great place to enjoy orangutans in a semi-natural environment. 
                         They play, show off, swing on the ropes and trees, to offer a view of their daily lives.  
                         The rangers are very attentive to the safety of the primates and visitors.  
@@ -112,30 +110,28 @@ export default function About() {
                     </div>
                 </div>
 
-                <div className="mt-16 pt-8 border-t-2 grid gap-8 grid-cols-12">
-                    <div className="col-span-4">
+                <div className="mt-16 pt-8 border-t-2 grid gap-8 grid-cols-12 sm:grid-cols-8">
+                <div className="col-span-4 sm:col-span-2">
                         <Image
                         src={Review2}
                         alt="Werner Luzi"
-                        className="inline-block h-24 w-24 rounded-full ring-2 ring-white object-cover object-center"    
+                        className="inline-block h-16 w-16 rounded-full ring-2 ring-white object-cover object-center sm:h-24 sm:w-24"    
                         />
-                        <p className="pt-4 text-black font-semibold text-lg">Werner Luzi</p>
-                        <p className="text-gray-600">June 24, 2024</p>
-                    </div>
+                        <p className="pt-4 text-black font-semibold text-sm sm:text-xl">Werner Luzi</p>
+                        <p className="text-gray-600 text-xs sm:text-lg">June 24, 2024</p>
 
-                    <div className="col-span-2">
-                        <div className="flex items-center">
-                            <StarIcon className="h-6 w-6 fill-yellow-300" />
-                            <StarIcon className="h-6 w-6 fill-yellow-300" />
-                            <StarIcon className="h-6 w-6 fill-yellow-300" />
-                            <StarIcon className="h-6 w-6 fill-yellow-300" />
-                            <StarIcon className="h-6 w-6 fill-yellow-300" />
-                            <p className="text-black ms-2">5</p>
+                        <div className="flex items-center pt-2">
+                            <StarIcon className="h-4 w-4 fill-yellow-300 sm:h-6 sm:w-6" />
+                            <StarIcon className="h-4 w-4 fill-yellow-300 sm:h-6 sm:w-6" />
+                            <StarIcon className="h-4 w-4 fill-yellow-300 sm:h-6 sm:w-6" />
+                            <StarIcon className="h-4 w-4 fill-yellow-300 sm:h-6 sm:w-6" />
+                            <StarIcon className="h-4 w-4 fill-yellow-300 sm:h-6 sm:w-6" />
+                            <p className="text-black ms-2 text-sm sm:text-lg">5</p>
                         </div>
                     </div>
 
-                    <div className="col-span-6">
-                        <p className="text-gray-800">
+                    <div className="col-span-8 sm:col-span-6 mr-8">
+                        <p className="text-gray-800 text-sm sm:text-xl">
                         Great place to see semi-wild orangutans. 
                         Orangutan sightings not guaranteed and lower probability during the fruiting season, but I have been lucky every time I visited so far. 
                         You can either walk or take an electric buggy from the entrance to the feeding area.
@@ -143,30 +139,28 @@ export default function About() {
                     </div>
                 </div>
 
-                <div className="mt-16 pt-8 border-t-2 grid gap-8 grid-cols-12">
-                    <div className="col-span-4">
+                <div className="mt-16 pt-8 border-t-2 grid gap-8 grid-cols-12 sm:grid-cols-8">
+                    <div className="col-span-4 sm:col-span-2">
                         <Image
                         src={Review3}
                         alt="Andrew Chew"
-                        className="inline-block h-24 w-24 rounded-full ring-2 ring-white object-cover object-center"    
+                        className="inline-block h-16 w-16 rounded-full ring-2 ring-white object-cover object-center sm:h-24 sm:w-24"    
                         />
-                        <p className="pt-4 text-black font-semibold text-lg">Andrew Chew</p>
-                        <p className="text-gray-600">February 25, 2024</p>
-                    </div>
+                        <p className="pt-4 text-black font-semibold text-sm sm:text-xl">Andrew Chew</p>
+                        <p className="text-gray-600 text-xs sm:text-lg">February 25, 2024</p>
 
-                    <div className="col-span-2">
-                        <div className="flex items-center">
-                            <StarIcon className="h-6 w-6 fill-yellow-300" />
-                            <StarIcon className="h-6 w-6 fill-yellow-300" />
-                            <StarIcon className="h-6 w-6 fill-yellow-300" />
-                            <StarIcon className="h-6 w-6 fill-yellow-300" />
-                            <StarIcon className="h-6 w-6 fill-yellow-300" />
-                            <p className="text-black ms-2">5</p>
+                        <div className="flex items-center pt-2">
+                            <StarIcon className="h-4 w-4 fill-yellow-300 sm:h-6 sm:w-6" />
+                            <StarIcon className="h-4 w-4 fill-yellow-300 sm:h-6 sm:w-6" />
+                            <StarIcon className="h-4 w-4 fill-yellow-300 sm:h-6 sm:w-6" />
+                            <StarIcon className="h-4 w-4 fill-yellow-300 sm:h-6 sm:w-6" />
+                            <StarIcon className="h-4 w-4 fill-yellow-300 sm:h-6 sm:w-6" />
+                            <p className="text-black ms-2 text-sm sm:text-lg">5</p>
                         </div>
                     </div>
 
-                    <div className="col-span-6">
-                        <p className="text-gray-800">
+                    <div className="col-span-8 sm:col-span-6 mr-8">
+                        <p className="text-gray-800 text-sm sm:text-xl">
                         Opening times are strictly as stated.
                         I arrived 1.30pm but the ticket counter opens 2pm for the 2 to pm session.
                         RM10 entry tickets for foreigners. 

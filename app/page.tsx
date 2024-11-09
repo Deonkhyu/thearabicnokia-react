@@ -13,22 +13,22 @@ export default function Home() {
 		<div>
 			<Header />
 
-			<div className="flex h-96 overflow-hidden items-center justify-center">
+			<div className="flex overflow-hidden items-center justify-center h-56 sm:h-96">
 				<video autoPlay loop muted className="opacity-50">
 					<source src='/Semenggoh Nature Reserve.mp4' type='video/mp4'/>
 				</video>
-				<p className="absolute text-white text-4xl p-2 border-2">Semenggoh Nature Reserve</p>
+				<p className="absolute text-white p-2 border-2 text-center text-xl sm:text-4xl">Semenggoh Nature Reserve</p>
 			</div>
 
-			<div className="flex flex-col bg-slate-100 items-center p-24 shadow-inner">
-				<p className="text-black text-4xl font-bold text-center">Semenggoh Nature Reserve</p>
-				<p className="text-black text-2xl text-center">Loooking after Sarawak's National Treasures</p>
+			<div className="flex flex-col bg-slate-100 items-center shadow-inner p-12 sm:p-24">
+				<p className="text-black font-bold text-center text-2xl sm:text-4xl">Semenggoh Nature Reserve</p>
+				<p className="text-black text-center text-l sm:text-2xl">Loooking after Sarawak's National Treasures</p>
 			</div>
 
 			<div className="flex flex-col bg-slate-200 items-center p-16 shadow-inner">
-				<p className="text-black text-4xl font-bold text-center">A Melding Pot of Biodiveristy, Culture and Natural Wonder</p>
+				<p className="text-black font-bold text-center text-2xl sm:text-4xl">A Melding Pot of Biodiveristy, Culture and Natural Wonder</p>
 				<div className="pt-16">
-					<ul className="grid grid-cols-3 gap-32">
+					<ul className="grid gap-8 sm:grid-cols-3 sm:gap-32 md:gap-16">
 						<li className="shadow-xl">
 							<Image 
 								src={IndexGallery1}

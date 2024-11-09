@@ -23,7 +23,7 @@ export default function Header() {
 						<img
 						alt=""
 						src="/SFC Logo.jpg"
-						className="h-24 w-auto"
+						className="h-16 w-auto sm:h-24"
 						/>
 					</a>
 				</div>
@@ -37,7 +37,7 @@ export default function Header() {
 					<Bars3Icon aria-hidden="true" className="h-6 w-6 fill-white" />
 					</button>
 				</div>
-				<div className="hidden lg:flex lg:gap-x-12">
+				<div className="hidden lg:flex lg:gap-x-4">
 					<a href="/donate" className="text-sm rounded-lg font-semibold leading-6 text-white p-2 hover:bg-neutral-700 active:bg-neutral-800">
 						Donate
 					</a>

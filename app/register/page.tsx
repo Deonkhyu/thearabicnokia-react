@@ -1,3 +1,7 @@
+'use client';
+
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
 import SFCLogo from "../../public/SFC Logo.jpg";
@@ -9,6 +13,84 @@ const poppins = Poppins({
 });
 
 export default function Register() {
+    const [form, setForm]  = useState({
+        email: "",
+        password: ""
+    });
+
+    const [isNew, setIsNew] = useState(true);
+    const params = useParams();
+
+    useEffect(() => {
+        async function fetchData() {
+            const id = params.id?.toString() || undefined;
+
+            if(!id) return;
+            setIsNew(false);
+            const response = await fetch(
+                'http://localhost:5050/users/${params.id.toString()}'
+            );
+
+            if(!response.ok) {
+                const message = 'An error has occurred: ${response.statusText}';
+                console.error(message);
+                return;
+            }
+            
+            const user = await response.json();
+            if(!user) {
+                console.warn('Record with id ${id} not found');
+                return;
+            }
+            setForm(user);
+        }
+        fetchData();
+        return;
+    }, [params.id]);
+
+    // These methods will update the state properties.
+    function updateForm(value: Partial<typeof form>) {
+        return setForm((prev) => {
+        return { ...prev, ...value };
+        });
+    }
+
+    // This function will handle the submission.
+    async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        const person = { ...form };
+        try {
+        let response;
+        if (isNew) {
+            // if we are adding a new record we will POST to /record.
+            response = await fetch("http://localhost:5050/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(person),
+            });
+        } else {
+            // if we are updating a record we will PATCH to /record/:id.
+            response = await fetch(`http://localhost:5050/users/${params.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(person),
+            });
+        }
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        } catch (error) {
+            console.error('A problem occurred with your fetch operation: ', error);
+        } finally {
+            setForm({ email: "", password: "" });
+        }
+    }
+
     return (
         <div className={poppins.className}>
             <div className="h-screen grid grid-cols-2">
@@ -25,11 +107,11 @@ export default function Register() {
                     </div>
 
                     <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                        <form className="space-y-6" action="#" method="POST">
+                        <form className="space-y-6" method="POST" onSubmit={onSubmit}>
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">Email address</label>
                             <div className="mt-2">
-                            <input id="email" name="email" type="email" autoComplete="email" required className="block w-full bg-white rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                            <input id="email" name="email" type="email" autoComplete="email" value={form.email} onChange={(e) => updateForm({ email: e.target.value })} required className="pl-2 block w-full bg-white rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                             </div>
                         </div>
 
@@ -38,7 +120,7 @@ export default function Register() {
                             <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">Password</label>
                             </div>
                             <div className="mt-2">
-                            <input id="password" name="password" type="password" autoComplete="current-password" required className="block w-full bg-white rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                            <input id="password" name="password" type="password" value={form.password} onChange={(e) => updateForm({ password: e.target.value })} required className="pl-2 block w-full bg-white rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                             </div>
                         </div>
 
@@ -47,7 +129,7 @@ export default function Register() {
                             <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">Confirm password</label>
                             </div>
                             <div className="mt-2">
-                            <input id="password" name="password" type="password" autoComplete="current-password" required className="block w-full bg-white rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                            <input id="confirmpassword" name="confirmpassword" type="password" required className="pl-2 block w-full bg-white rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                             </div>
                         </div>
 
