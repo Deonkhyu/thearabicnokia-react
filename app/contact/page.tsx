@@ -19,7 +19,7 @@ export default function Contact() {
             <Header />
 
             <div className={poppins.className}>
-            <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8 shadow-inner">
+            <div className="isolate bg-slate-100 px-6 py-24 sm:py-32 lg:px-8 shadow-inner">
             <div
                 aria-hidden="true"
                 className="absolute inset-x-0 top-[10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[10rem]"
@@ -127,31 +127,31 @@ export default function Contact() {
             </form>
             </div>
 
-            <div className="bg-gradient-to-tr from-gray-700 via-rose-500 to-orange-400">
+            <div className="bg-gradient-to-r from-lime-500 via-green-500 to-emerald-500">
                 <div className="flex justify-center p-16 bg-slate-900/40 backdrop-blur-sm">
                     <h2 className="text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl text-center">Contact Details</h2>
                 </div>
 
                 <div className="grid grid-cols-1 gap-4 p-12 md:p-16 md:grid-cols-4 md:gap-8 sm:p-24 sm:grid-cols-8">
-                    <div className="col-span-2">
-                        <h2 className="text-white font-semibold text-2xl">Phone</h2>
-                        <p className="text-white text-lg">General: (+6) 082-610088</p>
-                        <p className="text-white text-lg">Toll-Free: 1800-88-2526</p>
+                    <div className="text-black col-span-2">
+                        <h2 className="font-semibold text-2xl">Phone</h2>
+                        <p className="text-lg">General: (+6) 082-610088</p>
+                        <p className="text-lg">Toll-Free: 1800-88-2526</p>
                     </div>
 
-                    <div className="col-span-2">
-                        <h2 className="text-white font-semibold text-2xl">Fax</h2>
-                        <p className="text-white text-lg">General: (+6) 082-610099</p>
+                    <div className="text-black col-span-2">
+                        <h2 className="font-semibold text-2xl">Fax</h2>
+                        <p className="text-lg">General: (+6) 082-610099</p>
                     </div>
 
-                    <div className="col-span-2">
-                        <h2 className="text-white font-semibold text-2xl">Email</h2>
-                        <p className="text-white text-lg">info@sarawakforestry.com</p>
+                    <div className="text-black col-span-2">
+                        <h2 className="font-semibold text-2xl">Email</h2>
+                        <p className="text-lg">info@sarawakforestry.com</p>
                     </div>
 
-                    <div className="col-span-2">
-                        <h2 className="text-white font-semibold text-2xl">Address</h2>
-                        <p className="text-white text-lg">Lot 218, KCLD, Jalan Tapang, Kota Sentosa, 93250 Kuching, Sarawak, Malaysia.</p>
+                    <div className="text-black col-span-2">
+                        <h2 className="font-semibold text-2xl">Address</h2>
+                        <p className="text-lg">Lot 218, KCLD, Jalan Tapang, Kota Sentosa, 93250 Kuching, Sarawak, Malaysia.</p>
                     </div>
                 </div>
             </div>

@@ -1,23 +1,43 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import ImageUploading, { ImageListType } from "react-images-uploading";
 
-export default function App() {
-  const [images, setImages] = React.useState([]);
+interface ImagesUploaderProps {
+  setAnnotatedImagePath: (imagePath: string | null) => void;
+  setResultsFilePath: (filePath: string | null) => void;
+}
+
+const ImagesUploader: React.FC<ImagesUploaderProps> = ({ setAnnotatedImagePath, setResultsFilePath }) => {
+  const [images, setImages] = useState<ImageListType>([]);
   const maxNumber = 1;
 
-  const onChange = (
-    imageList: ImageListType,
-    addUpdateIndex: number[] | undefined
-  ) => {
-    // data for submit
-    console.log(imageList, addUpdateIndex);
-    setImages(imageList as never[]);
+  const onChange = (imageList: ImageListType, addUpdateIndex: number[] | undefined) => {
+    setImages(imageList);
+  };
+
+  const handleUpload = async () => {
+    if (images.length === 0) return;
+
+    const formData = new FormData();
+    formData.append('file', images[0].file as File);
+
+    try {
+      const response = await fetch('http://localhost:8000/predict/', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+      setAnnotatedImagePath(data.annotated_image_path);
+      setResultsFilePath(data.results_file_path);
+    } catch (error) {
+      console.error('Error uploading image:', error);
+    }
   };
 
   return (
-    <div className="App">
+    <div className="App flex">
       <ImageUploading
         multiple
         value={images}
@@ -32,8 +52,7 @@ export default function App() {
           isDragging,
           dragProps
         }) => (
-          // write your building UI
-          <div className="upload__image-wrapper ms-2">
+          <div className="upload__image-wrapper">
             <button
               style={isDragging ? { color: "red" } : undefined}
               onClick={onImageUpload}
@@ -48,6 +67,7 @@ export default function App() {
                 <div className="image-item__btn-wrapper">
                   <button onClick={() => onImageUpdate(index)}>Update</button>
                   <button onClick={() => onImageRemove(index)} className="ms-2">Remove</button>
+                  <button onClick={handleUpload} className="ms-2">Upload</button>
                 </div>
               </div>
             ))}
@@ -56,4 +76,6 @@ export default function App() {
       </ImageUploading>
     </div>
   );
-}
+};
+
+export default ImagesUploader;

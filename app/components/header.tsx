@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
 	Dialog,
 	DialogPanel,
@@ -13,6 +13,35 @@ import {
 
 export default function Header() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+	const [userID, setUserID] = useState<string | null>(null);
+	const [isAdmin, setIsAdmin] = useState<boolean>(false);
+
+	useEffect(() => {
+        // Retrieve the userID from session storage when the component mounts
+        const storedUserID = sessionStorage.getItem('userID');
+		const adminStatus = sessionStorage.getItem("isAdmin");
+        if (storedUserID) {
+            setUserID(storedUserID);
+            // Simulate fetching admin status (in a real app, you would fetch this from an API or backend)
+        }
+
+		if (adminStatus === "true") {
+            setIsAdmin(true);
+        }
+    }, []);
+
+	// Logout function to clear user session
+	const logout = () => {
+		sessionStorage.removeItem('userID');
+		sessionStorage.removeItem('isAdmin');
+		setUserID(null);
+		setIsAdmin(false); // Clear admin status on logout
+	}
+
+	const getLinkWithUserID = (link: string) => {
+		// If userID exists, append it to the URL as a query parameter
+		return userID ? `${link}?userID=${userID}` : link;
+	}
 
   	return (
 		<header className="bg-neutral-900">
@@ -38,33 +67,47 @@ export default function Header() {
 					</button>
 				</div>
 				<div className="hidden lg:flex lg:gap-x-4">
-					<a href="/donate" className="text-sm rounded-lg font-semibold leading-6 text-white p-2 hover:bg-neutral-700 active:bg-neutral-800">
+					<a href={getLinkWithUserID('/donate')} className="text-sm rounded-lg font-semibold leading-6 text-white p-2 hover:bg-neutral-700 active:bg-neutral-800">
 						Donate
 					</a>
-					<a href="/prices" className="text-sm rounded-lg font-semibold leading-6 text-white p-2 hover:bg-neutral-700 active:bg-neutral-800">
+					<a href={getLinkWithUserID('/prices')} className="text-sm rounded-lg font-semibold leading-6 text-white p-2 hover:bg-neutral-700 active:bg-neutral-800">
 						Prices
 					</a>
-					<a href="/gallery" className="text-sm rounded-lg font-semibold leading-6 text-white p-2 hover:bg-neutral-700 active:bg-neutral-800">
+					<a href={getLinkWithUserID('/gallery')} className="text-sm rounded-lg font-semibold leading-6 text-white p-2 hover:bg-neutral-700 active:bg-neutral-800">
 						Gallery
 					</a>
-					<a href="/about" className="text-sm rounded-lg font-semibold leading-6 text-white p-2 hover:bg-neutral-700 active:bg-neutral-800">
+					<a href={getLinkWithUserID('/about')} className="text-sm rounded-lg font-semibold leading-6 text-white p-2 hover:bg-neutral-700 active:bg-neutral-800">
 						About
 					</a>
-					<a href="/contact" className="text-sm rounded-lg font-semibold leading-6 text-white p-2 hover:bg-neutral-700 active:bg-neutral-800">
+					<a href={getLinkWithUserID('/contact')} className="text-sm rounded-lg font-semibold leading-6 text-white p-2 hover:bg-neutral-700 active:bg-neutral-800">
 						Contact
 					</a>
-					<a href="/dashboard" className="text-sm rounded-lg font-semibold leading-6 text-white p-2 hover:bg-neutral-700 active:bg-neutral-800">
-						Dashboard
-					</a>
+					
+					{/* Conditionally render "Dashboard" based on isAdmin */}
+					{isAdmin && (
+						<a href={getLinkWithUserID('/dashboard')} className="text-sm rounded-lg font-semibold leading-6 text-white p-2 hover:bg-neutral-700 active:bg-neutral-800">
+							Dashboard
+						</a>
+					)}
 				</div>
 				<div className="hidden lg:flex lg:flex-1 lg:justify-end">
-					<a href="/login" className="flex text-sm rounded-lg font-semibold leading-6 text-white p-2 hover:bg-neutral-700 active:bg-neutral-800">
-						Log in 
-						<ArrowRightEndOnRectangleIcon aria-hidden="true" className="h-6 w-6 ml-2" />
-					</a>
-					<a href="/register" className="flex text-sm rounded-lg font-semibold leading-6 text-white p-2 ml-2 hover:bg-neutral-700 active:bg-neutral-800">
-						Register
-					</a>
+					{/* Show Log In and Register only if user is not logged in */}
+					{!userID ? (
+						<>
+							<a href={getLinkWithUserID('/login')} className="flex text-sm rounded-lg font-semibold leading-6 text-white p-2 hover:bg-neutral-700 active:bg-neutral-800">
+								Log in 
+								<ArrowRightEndOnRectangleIcon aria-hidden="true" className="h-6 w-6 ml-2" />
+							</a>
+							<a href={getLinkWithUserID('/register')} className="flex text-sm rounded-lg font-semibold leading-6 text-white p-2 ml-2 hover:bg-neutral-700 active:bg-neutral-800">
+								Register
+							</a>
+						</>
+					) : (
+						// Show Log Out button if user is logged in
+						<button onClick={logout} className="text-sm rounded-lg font-semibold leading-6 text-white p-2 hover:bg-neutral-700 active:bg-neutral-800">
+							Log out
+						</button>
+					)}
 				</div>
 			</nav>
 			<Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
@@ -91,34 +134,46 @@ export default function Header() {
 						<div className="mt-6 flow-root">
 						<div className="-my-6 divide-y divide-gray-500/10">
 							<div className="space-y-2 py-6">
-								<a href="/donate" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-neutral-700 active:bg-neutral-800">
+								<a href={getLinkWithUserID('/donate')} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-neutral-700 active:bg-neutral-800">
 									Donate
 								</a>
-								<a href="/prices" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-neutral-700 active:bg-neutral-800">
+								<a href={getLinkWithUserID('/prices')} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-neutral-700 active:bg-neutral-800">
 									Prices
 								</a>
-								<a href="/gallery" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-neutral-700 active:bg-neutral-800">
+								<a href={getLinkWithUserID('/gallery')} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-neutral-700 active:bg-neutral-800">
 									Gallery
 								</a>
-								<a href="/about" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-neutral-700 active:bg-neutral-800">
+								<a href={getLinkWithUserID('/about')} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-neutral-700 active:bg-neutral-800">
 									About
 								</a>
-								<a href="/contact" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-neutral-700 active:bg-neutral-800">
+								<a href={getLinkWithUserID('/contact')} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-neutral-700 active:bg-neutral-800">
 									Contact
 								</a>
-								<a href="/dashboard" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-neutral-700 active:bg-neutral-800">
-									Dashboard
-								</a>
+								{/* Conditionally render "Dashboard" based on isAdmin */}
+								{isAdmin && (
+									<a href={getLinkWithUserID('/dashboard')} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-neutral-700 active:bg-neutral-800">
+										Dashboard
+									</a>
+								)}
 							</div>
-							<div className="py-6">
-								<a href="/login" className="flex items-center -mx-3 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-neutral-700 active:bg-neutral-800">
-									Log in
-									<ArrowRightEndOnRectangleIcon aria-hidden="true" className="h-6 w-6 ml-2" />
-								</a>
-								<a href="/register" className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-neutral-700 active:bg-neutral-800">
-									Register
-								</a>
-							</div>
+							{/* Show Log In and Register only if user is not logged in */}
+							{!userID ? (
+								<div className="space-y-2 py-6">
+									<a href={getLinkWithUserID('/login')} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-neutral-700 active:bg-neutral-800">
+										Log in
+									</a>
+									<a href={getLinkWithUserID('/register')} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-neutral-700 active:bg-neutral-800">
+										Register
+									</a>
+								</div>
+							) : (
+								// Show Log Out button if user is logged in
+								<div className="space-y-2 py-6">
+									<button onClick={logout} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-neutral-700 active:bg-neutral-800">
+										Log out
+									</button>
+								</div>
+							)}
 						</div>
 						</div>
 					</DialogPanel>

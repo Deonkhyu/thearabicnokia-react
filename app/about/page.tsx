@@ -1,5 +1,6 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
+import Newsletter from "../components/newsletter";
 import Image from "next/image";
 import AboutBanner from "../../public/About Banner.jpg";
 import Review1 from "../../public/Review 1.jpg";
@@ -72,12 +73,12 @@ export default function About() {
             </div>
             </div>
 
-            <div className="p-16 bg-white shadow-inner">
+            <div className="p-16 bg-slate-200 shadow-inner">
                 <h2 className="text-2xl font-semibold tracking-tight text-black">Reviews</h2>
                 <p className="text-m text-gray-600">See what our visitors say about us.</p>
 
-                <div className="mt-16 pt-8 border-t-2 grid gap-8 grid-cols-12 sm:grid-cols-8">
-                    <div className="col-span-4 sm:col-span-2">
+                <div className="mt-16 pt-8 border-black border-t-2 grid gap-8 grid-cols-12 sm:grid-cols-8">
+                    <div className="flex flex-col items-center col-span-4 sm:col-span-2">
                         <Image
                         src={Review1}
                         alt="Toni Thompson"
@@ -110,8 +111,8 @@ export default function About() {
                     </div>
                 </div>
 
-                <div className="mt-16 pt-8 border-t-2 grid gap-8 grid-cols-12 sm:grid-cols-8">
-                <div className="col-span-4 sm:col-span-2">
+                <div className="mt-16 pt-8 border-black border-t-2 grid gap-8 grid-cols-12 sm:grid-cols-8">
+                    <div className="flex flex-col items-center col-span-4 sm:col-span-2">
                         <Image
                         src={Review2}
                         alt="Werner Luzi"
@@ -139,8 +140,8 @@ export default function About() {
                     </div>
                 </div>
 
-                <div className="mt-16 pt-8 border-t-2 grid gap-8 grid-cols-12 sm:grid-cols-8">
-                    <div className="col-span-4 sm:col-span-2">
+                <div className="mt-16 pt-8 border-black border-t-2 grid gap-8 grid-cols-12 sm:grid-cols-8">
+                    <div className="flex flex-col items-center col-span-4 sm:col-span-2">
                         <Image
                         src={Review3}
                         alt="Andrew Chew"
@@ -173,6 +174,8 @@ export default function About() {
                 </div>
             </div>
             </div>
+
+            <Newsletter />
 
             <Footer />
         </div>

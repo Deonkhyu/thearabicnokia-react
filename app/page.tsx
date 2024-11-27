@@ -1,3 +1,6 @@
+"use client";
+
+import { useRef, useState } from "react";
 import Image from 'next/image'
 import IndexGallery1 from '../public/Index Gallery 1.jpg'
 import IndexGallery2 from '../public/Index Gallery 2.jpg'
@@ -5,10 +8,32 @@ import IndexGallery3 from '../public/Index Gallery 3.jpg'
 import IndexGallery4 from '../public/Index Gallery 4.jpg'
 import IndexGallery5 from '../public/Index Gallery 5.jpg'
 import IndexGallery6 from '../public/Index Gallery 6.jpg'
+import AnimalsClipart from "../public/Animals Clipart.png";
 import Header from './components/header'
 import Footer from './components/footer'
+import Carousel from './components/carousel'
 
 export default function Home() {
+	const carouselData = useRef([
+		{
+		  title: "Respect the local environment.",
+		  color: "rgb(14, 116, 144)",
+		  content: "Stay on trails and public footpaths; do not remove plants or feed animals; and never litter.",
+		},
+		{
+		  title: "Limit energy use.",
+		  color: "rgb(37, 99, 235)",
+		  content: "This includes your use of air-conditioning and hot water. Turn off all lights and taps when you leave hotel rooms.",
+		},
+		{
+		  title: "Recycle and reduce.",
+		  color: "rgb(79, 70, 229)",
+		  content: "Recycle newspapers, magazines and your beverage containers (many can be returned for refunds), and reduce the number of bags, napkins and disposable cups you use when you eat fast food.",
+		},
+	]);
+
+	const [activeItemIndex, setActiveItemIndex] = useState(0);
+
   	return (
 		<div>
 			<Header />
@@ -72,6 +97,23 @@ export default function Home() {
 							/>
 						</li>
 					</ul>
+				</div>
+			</div>
+
+			<div className="flex justify-evenly p-4 h-[500px] place-items-center shadow-inner bg-gradient-to-r from-cyan-700 via-blue-500 to-indigo-600">
+				<Image 
+					src={AnimalsClipart}
+					alt="Animals Clipart"
+					className="hidden lg:block lg:h-[550px] lg:w-[550px]"
+				/>
+
+				<div>
+					<p className="mb-4 font-bold text-center text-4xl drop-shadow-lg">Eco-Friendly Tips</p>
+					<Carousel
+						activeItemIndex={activeItemIndex}
+						setActiveItemIndex={setActiveItemIndex}
+						carouselData={carouselData.current}
+						/>
 				</div>
 			</div>
 
