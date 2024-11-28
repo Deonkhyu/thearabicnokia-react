@@ -7,9 +7,6 @@ import os
 import re
 import random
 from otp_utils import generate_otp, verify_otp
-from dotenv import load_dotenv
-
-load_dotenv()
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for cross-origin requests
@@ -20,6 +17,7 @@ mongo_uri = os.getenv("MONGODB_URI", "mongodb://admin_sfc:admin_223344@localhost
 client = MongoClient(mongo_uri)
 db = client.get_database()  # Use the specified database from the URI
 collection = db.users
+collection_iot = db.sensor_data
 
 # Email validation function
 def is_valid_email(email):
@@ -240,5 +238,32 @@ def verify_otp_route():
     else:
         return jsonify({"error": message}), 400
 
+@app.route('/iot/data', methods=['POST'])
+def receive_iot_data():
+    try:
+        data = request.json  # Get JSON data
+        if not data:
+            return jsonify({"error": "No data received"}), 400
+
+        # Ensure the data is a dictionary
+        if isinstance(data, str):
+            try:
+                # Convert string to dictionary
+                data = eval(data)  # Use `json.loads(data)` if it's a JSON string
+            except Exception as e:
+                return jsonify({"error": "Invalid data format"}), 400
+
+        # Validate that data is now a dictionary
+        if not isinstance(data, dict):
+            return jsonify({"error": "Expected a dictionary"}), 400
+
+        # Insert the dictionary into MongoDB
+        collection_iot.insert_one(data)
+        return jsonify({"message": "Sensor data stored successfully"}), 201
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 if __name__ == '__main__':
-    app.run(port=5052) 
+    app.run(host='0.0.0.0', port=5000)

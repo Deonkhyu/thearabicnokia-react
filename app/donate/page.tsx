@@ -39,7 +39,7 @@ const DonationPage = () => {
     <PayPalScriptProvider
       options={{
         clientId:
-          "AZoAV96lOBia2rON8Kb65LwU-u5V9kQ1YNYm90FQOa4HelG9KaV0G_ToZnZSc82PdIF9rpvDkpUsHP69",
+          "AY6WjiUAuH7t5w6eVXPy24z4obtxWwn_BzNngwKfOApaQ7s3jhEQp7TwO9wj9kSgaotWXxtArgU4fhA9",
       }}
     >
       <div className="flex flex-col min-h-screen">

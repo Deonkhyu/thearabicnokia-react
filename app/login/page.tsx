@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation"; // Import useRouter from next/navigation
 import { Poppins } from "next/font/google";
@@ -24,6 +24,31 @@ export default function Login() {
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
     const router = useRouter(); // Initialize useRouter from next/navigation
+
+    // Disable right-click and key combinations for "Inspect Element"
+    useEffect(() => {
+        // Disable right-click context menu
+        const handleContextMenu = (e: MouseEvent) => e.preventDefault();
+        document.addEventListener("contextmenu", handleContextMenu);
+
+        // Disable F12, Ctrl+Shift+I (Windows), Cmd+Option+I (Mac) for dev tools
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (
+                e.key === "F12" ||
+                (e.ctrlKey && e.shiftKey && e.key === "I") ||
+                (e.metaKey && e.altKey && e.key === "I")
+            ) {
+                e.preventDefault();
+            }
+        };
+        document.addEventListener("keydown", handleKeyDown);
+
+        // Cleanup event listeners on component unmount
+        return () => {
+            document.removeEventListener("contextmenu", handleContextMenu);
+            document.removeEventListener("keydown", handleKeyDown);
+        };
+    }, []);
 
     // Add this function to check if user is admin
     const checkIfAdmin = async (userID: string) => {
